@@ -1,2 +1,3 @@
-# swtich_code_challenge
-Simple code challenge from swtich.com
+#Message
+
+This is a simple nodeJS server which reads from the /www directory. Easy and simple.

@@ -1,0 +1,37 @@
+var successfulChoices = {
+	"job_title": "Founder, Chairman, CEO",
+	"patents": "260+",
+	"experience": "15+",
+	"footage": "2,000,000+",
+	"numcenters": "6+",
+	"financial": "$1,000,000,000+"
+}
+
+$(document).ready(function() {
+	$(".challenge-form").on("change", "select", function(event){
+		var val = $(this).val();
+		var thisId = $(this).attr("id");
+		if (val == successfulChoices[thisId]){
+			$("#fail_"+thisId).removeClass("fail");
+			$("#maybe_"+thisId).html("MAYBE");
+			$("#maybe_"+thisId).addClass("maybe");
+		} else {
+			$("#maybe_"+thisId).removeClass("maybe");
+			$("#maybe_"+thisId).html("PASS");
+			$("#fail_"+thisId).addClass("fail");
+		};
+		var maybes = $("button.maybe").length;
+		var fails = $("button.fail").length;
+		var total = maybes + fails;
+		if (total == 6){
+			if ($("#job_title").val() == "Founder, Chairman, CEO" && $("#patents").val() == "260+" && $("#experience").val() == "15+" && $("#footage").val() == "2,000,000+" && $("#numcenters").val() == "6+" && $("#financial").val() == "$1,000,000,000+"){
+				$(".challenge-results").addClass("accepted");
+				$(".challenge-results").removeClass("failed");
+			} else {
+				$(".challenge-results").addClass("failed");
+				$(".challenge-results").removeClass("accepted");
+			};
+		}
+	});
+
+});

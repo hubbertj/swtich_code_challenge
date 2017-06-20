@@ -1,0 +1,89 @@
+/**
+ * Created by rkochis on 3/14/17.
+ */
+
+// handles all video modal functions
+$(function(){
+
+    //Event listener for popup modals
+    $("[data-modal]").on("click", function(){
+
+        var modalId = $(this).data('modal');
+        $("#"+modalId).addClass('active');
+        $("body").addClass('modal-active');
+    });
+
+    //Event listener for closing modals
+    $(".close").on("click", function(){
+
+        var activeModal = $('.modal.active');
+
+        // get the popup modal data attributes
+        var modalType = activeModal.data('type');
+
+        if (modalType == 'video') {
+            // set the video modalID
+            var modalId = activeModal.data('popup-id') + '_html5_api';
+            var vid = document.getElementById(modalId);
+            if (vid != null) {
+                vid.pause();
+            } else { // vimeo
+                player.pause();
+            }
+        };
+
+        // close the popup modal
+        activeModal.removeClass('active');
+        $("body").removeClass('modal-active');
+    });
+
+    // play video when modal clicked
+    $(".popupTrigger").on("click", function () {
+        var modalId = $(this).data("popup-id");
+        $(".giant-play").addClass("hidden");
+        $("[data-popup-id='" + modalId + "']").addClass('active');
+        $("body").addClass('modal-active');
+        var modalType = $(".modal[data-popup-id=" + modalId + "]").data("type");
+        if (modalType == "video") {
+            var vid = document.getElementById(modalId + '_html5_api');
+            if (vid !== null) { // local videos only
+                vid.play();
+
+                // close modal when video ends
+                videojs(vid).ready(function () {
+                    var activeVideo = this;
+                    activeVideo.on("ended", function () {
+                        $(".video-modal").removeClass('active');
+                        $("body").removeClass('modal-active');
+                    });
+                });
+            } else { // vimeo etc.
+                player.play();
+
+                // handle the video ending
+                player.on("ended", function () {
+                    $(".video-modal").removeClass('active');
+                    $("body").removeClass('modal-active');
+                });
+            }
+        }
+    });
+
+    // needed on iPads since they don't autoplay videos
+    // show giant play video button
+    $("body").on("click", ".giant-play", function(){
+        $(".giant-play").addClass("hidden");
+
+        var modalId = $(this).data("video") + '_html5_api';
+        var vid = document.getElementById(modalId);
+        if (vid !== null) { // local videos only
+            vid.play();
+        } else { // vimeo etc.
+            player.play();
+        }
+    });
+
+});
+
+
+
