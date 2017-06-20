@@ -7,6 +7,6 @@ var serveStatic = require('serve-static');
 var pPort = process.env['testPort'] || 8000;
 
 connect().use(serveStatic(SERVER_DIR)).listen(8000, () => {
-	console.log('Starting server on port ' + pPort)
+	console.log('Starting server on 127.0.0.1:' + pPort)
 });
 
