@@ -1,3 +1,91 @@
-body{
 
+
+/*header*/
+nav ul li a, nav ul li a:visited {
+	 color: #add8e6;
 }
+
+.nav-main .menu-item ul li:hover {
+  background: #30819c;
+}
+
+.nav-main .menu-item:hover ul {
+  background: #000000;
+}
+
+.nav-main > ul > li:last-child a, .nav-prime > ul > li:last-child a {
+	background: #30819c;
+	border: 1px solid #30819c;
+}
+
+nav ul li a:hover{
+	color: #30819c !important;
+}
+/* end */
+
+
+/* body */
+div.section.section_copy{
+	background: #30819c !important;
+} 
+
+.learn, a.learn, .learn:visited {
+	background: #30819c;
+	border: 1px solid #30819c;
+}
+
+.learn:hover, a.learn:hover{
+	background: #30819c;
+	border: 1px solid #30819c;
+	color: #26677d;
+}
+
+div.section.section_header{
+	padding: 1em 0;
+	background: #add8e6 !important;
+}
+
+div.section.section_header img{
+	visibility: hidden;
+}
+
+div.section.section_header h1{
+	color: #add8e6 !important;
+}
+
+.copy-img img{
+	border-radius: 1em;
+}
+
+.side-copy h3 {
+	border-bottom: 1px solid #add8e6;
+}
+
+/* end */
+
+/*footer*/
+
+footer{
+	background: #30819c !important;
+}
+
+footer .footer-logo{
+	background: #30819c !important;
+}
+
+footer > ul > li > a {
+	border-bottom: 1px solid white;
+}
+
+footer ul li a, footer ul li a:visited {
+	color: #add8e6;
+}
+
+
+
+
+
+
+
+
+
