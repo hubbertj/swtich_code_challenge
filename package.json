@@ -2,7 +2,7 @@
     "name": "Simple_Web_Server",
     "version": "0.0.1",
     "description": "An simple web server for testing",
-    "author": "Jerum Hubbert <jerum.hubbert@CounterDraft.com>",
+    "author": "Jerum Hubbert",
     "keywords": [
         "nodejitsu",
         "example",
